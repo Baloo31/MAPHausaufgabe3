@@ -8,6 +8,9 @@ public class Course {
     private int maxEnrollment;
     private List<Student> studentsEnrolled;
     private int credits;
+    private long courseId;
+
+    private static long courseIdCounter = 0;
 
     public Course(String name, Person teacher, int maxEnrollment, int credits){
         this.name = name;
@@ -15,6 +18,12 @@ public class Course {
         this.maxEnrollment = maxEnrollment;
         this.studentsEnrolled = List.of();
         this.credits = credits;
+        this.courseId = courseIdCounter;
+        courseIdCounter++;
+    }
+
+    public void addStudent(Student student) {
+        studentsEnrolled.add(student);
     }
 
     public String getName() {
@@ -49,4 +58,15 @@ public class Course {
         return credits;
     }
 
+    public List<Student> getStudentsEnrolled() {
+        return studentsEnrolled;
+    }
+
+    public int getNumberOfStudents(){
+        return studentsEnrolled.size();
+    }
+
+    public long getCourseId() {
+        return courseId;
+    }
 }

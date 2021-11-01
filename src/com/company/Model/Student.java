@@ -17,6 +17,11 @@ public class Student extends Person {
         this.enrolledCourses = List.of();
     }
 
+    public void addCourse(Course course){
+        this.totalCredits += course.getCredits();
+        this.enrolledCourses.add(course);
+    }
+
     public long getStudentId() {
         return studentId;
     }
@@ -29,4 +34,11 @@ public class Student extends Person {
         this.totalCredits = totalCredits;
     }
 
+    public List<Course> getEnrolledCourses() {
+        return enrolledCourses;
+    }
+
+    public int getNumberOfCourses(){
+        return enrolledCourses.size();
+    }
 }
