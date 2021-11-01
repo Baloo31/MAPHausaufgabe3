@@ -17,6 +17,8 @@ public class CourseRepository extends InMemoryRepository<Course>{
 
         courseToUpdate.setMaxEnrollment(obj.getMaxEnrollment());
         courseToUpdate.setCredits(obj.getCredits());
+        courseToUpdate.setStudentsEnrolled(obj.getStudentsEnrolled());
+        courseToUpdate.setTeacher(obj.getTeacher());
         return courseToUpdate;
     }
 }

@@ -1,5 +1,6 @@
 package com.company.Model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Teacher extends Person{
@@ -12,10 +13,22 @@ public class Teacher extends Person{
         super(firstName, lastName);
         this.teacherId = teacherIdCounter;
         teacherIdCounter++;
-        this.courses = List.of();
+        this.courses = new LinkedList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "teacherId=" + teacherId +
+                '}';
     }
 
     public long getTeacherId() {
         return teacherId;
     }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
 }

@@ -46,17 +46,38 @@ public class RegistrationSystem {
         return courseRepository.getAll();
     }
 
-    /*
+    public boolean deleteCourse(Teacher teacher, Course courseToDelete){
+        if (courseToDelete.getTeacher() == teacher) {
+            for (Student student :  courseToDelete.getStudentsEnrolled()){
+                student.deleteCourse(courseToDelete);
+            }
+            courseRepository.delete(courseToDelete);
+            return true;
+        }
+        return false;
+    }
+
+    public void setCourseRepository(CourseRepository courseRepository) {
+        this.courseRepository = courseRepository;
+    }
+
     public CourseRepository getCourseRepository() {
         return courseRepository;
+    }
+
+    public void setStudentRepository(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
     }
 
     public StudentRepository getStudentRepository() {
         return studentRepository;
     }
 
+    public void setTeacherRepository(TeacherRepository teacherRepository) {
+        this.teacherRepository = teacherRepository;
+    }
+
     public TeacherRepository getTeacherRepository() {
         return teacherRepository;
     }
-     */
 }

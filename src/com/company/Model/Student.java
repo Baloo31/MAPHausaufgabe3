@@ -1,5 +1,6 @@
 package com.company.Model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Student extends Person {
@@ -14,12 +15,25 @@ public class Student extends Person {
         this.studentId = studentIdCounter;
         studentIdCounter++;
         this.totalCredits = 0;
-        this.enrolledCourses = List.of();
+        this.enrolledCourses = new LinkedList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId=" + studentId +
+                ", totalCredits=" + totalCredits +
+                '}';
     }
 
     public void addCourse(Course course){
         this.totalCredits += course.getCredits();
         this.enrolledCourses.add(course);
+    }
+
+    public void deleteCourse(Course course){
+        this.enrolledCourses.remove(course);
+        this.totalCredits -= course.getCredits();
     }
 
     public long getStudentId() {
@@ -41,4 +55,9 @@ public class Student extends Person {
     public int getNumberOfCourses(){
         return enrolledCourses.size();
     }
+
+    public void setEnrolledCourses(List<Course> enrolledCourses) {
+        this.enrolledCourses = enrolledCourses;
+    }
+
 }
