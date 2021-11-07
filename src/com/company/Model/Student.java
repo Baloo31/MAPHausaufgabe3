@@ -12,17 +12,21 @@ public class Student extends Person {
 
     public Student(String firstname, String lastName) {
         super(firstname, lastName);
-        this.studentId = studentIdCounter;
-        studentIdCounter++;
         this.totalCredits = 0;
         this.enrolledCourses = new LinkedList<>();
+        this.studentId = studentIdCounter;
+        studentIdCounter++;
     }
+
 
     @Override
     public String toString() {
         return "Student{" +
-                "studentId=" + studentId +
+                "firstName=" + getFirstName() +
+                ", lastName=" + getLastName() +
+                ", studentId=" + studentId +
                 ", totalCredits=" + totalCredits +
+                ", nrEnrolledCourses=" + getNumberOfCourses() +
                 '}';
     }
 
@@ -35,6 +39,7 @@ public class Student extends Person {
         this.enrolledCourses.remove(course);
         this.totalCredits -= course.getCredits();
     }
+
 
     public long getStudentId() {
         return studentId;

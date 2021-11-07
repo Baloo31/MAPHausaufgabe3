@@ -10,10 +10,10 @@ public class Course {
     private List<Student> studentsEnrolled;
     private int credits;
     private long courseId;
-
     private static long courseIdCounter = 0;
 
-    public Course(String name, Person teacher, int maxEnrollment, int credits){
+
+    public Course(String name, Teacher teacher, int maxEnrollment, int credits){
         this.name = name;
         this.teacher = teacher;
         this.maxEnrollment = maxEnrollment;
@@ -21,7 +21,9 @@ public class Course {
         this.credits = credits;
         this.courseId = courseIdCounter;
         courseIdCounter++;
+        teacher.addCourse(this);
     }
+
 
     @Override
     public String toString() {
@@ -29,6 +31,7 @@ public class Course {
                 "name='" + name + '\'' +
                 ", teacher=" + teacher +
                 ", maxEnrollment=" + maxEnrollment +
+                ", nrEnrolledStudents=" + getNumberOfStudents() +
                 ", credits=" + credits +
                 ", courseId=" + courseId +
                 '}';
@@ -38,20 +41,18 @@ public class Course {
         studentsEnrolled.add(student);
     }
 
+    public int getNumberOfStudents(){
+        return studentsEnrolled.size();
+    }
+
+
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getMaxEnrollment() {
-        return maxEnrollment;
-    }
-
-    public void setMaxEnrollment(int maxEnrollment) {
-        this.maxEnrollment = maxEnrollment;
     }
 
     public Person getTeacher() {
@@ -62,12 +63,20 @@ public class Course {
         this.teacher = teacher;
     }
 
-    public void setCredits(int credits) {
-        this.credits = credits;
+    public int getMaxEnrollment() {
+        return maxEnrollment;
+    }
+
+    public void setMaxEnrollment(int maxEnrollment) {
+        this.maxEnrollment = maxEnrollment;
     }
 
     public int getCredits() {
         return credits;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
     }
 
     public List<Student> getStudentsEnrolled() {
@@ -76,10 +85,6 @@ public class Course {
 
     public void setStudentsEnrolled(List<Student> studentsEnrolled) {
         this.studentsEnrolled = studentsEnrolled;
-    }
-
-    public int getNumberOfStudents(){
-        return studentsEnrolled.size();
     }
 
     public long getCourseId() {

@@ -19,8 +19,19 @@ public class Teacher extends Person{
     @Override
     public String toString() {
         return "Teacher{" +
-                "teacherId=" + teacherId +
+                "firstName=" + getFirstName() +
+                ", lastName=" + getLastName() +
+                ", teacherId=" + teacherId +
+                ", nrOfCourses=" + getNrOfCourses() +
                 '}';
+    }
+
+    public void addCourse(Course course){
+        courses.add(course);
+    }
+
+    public int getNrOfCourses() {
+        return courses.size();
     }
 
     public long getTeacherId() {

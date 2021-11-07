@@ -15,8 +15,6 @@ public class StudentRepository extends InMemoryRepository<Student>{
                 .findFirst()
                 .orElseThrow();
 
-        studentToUpdate.setEnrolledCourses(obj.getEnrolledCourses());
-        studentToUpdate.setTotalCredits(obj.getTotalCredits());
         studentToUpdate.setFirstName(obj.getFirstName());
         studentToUpdate.setLastName(obj.getLastName());
         return studentToUpdate;
