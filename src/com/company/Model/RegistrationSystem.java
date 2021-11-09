@@ -107,4 +107,27 @@ public class RegistrationSystem {
         }
     }
 
+
+    /**
+     * @return course repository
+     */
+    public CourseRepository getCourseRepo() {
+        return courseRepo;
+    }
+
+
+    /**
+     * @return student repository
+     */
+    public StudentRepository getStudentRepo() {
+        return studentRepo;
+    }
+
+
+    /**
+     * @return teacher repository
+     */
+    public TeacherRepository getTeacherRepo() {
+        return teacherRepo;
+    }
 }
